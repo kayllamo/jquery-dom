@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Rate that Movie</h1>
+    <div class="form">
+        <form id="movie-form">
+            Title
+            <input type="text" class="movieTitle" placeholder="Movie Name" minlength="2" required>
+            Rating
+            <input type="range" class="movieRating" min="1" max="10">
+            <input type="submit" name="submit" id="submit">
+        </form>
+    </div>
+    <div class="results">
+        <!-- Results list -->
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+    //add code here
+
+    $("#movie-form").on('submit', function (e) {
+        e.preventDefault();
+        let movie = $(".movieTitle").val()
+        let rating = $(".movieRating").val()
+        let moviesToSort = $(".results").children().get();
+        
+        $(".results").append(
+            '<div class=ratedMovie>' +
+                '<h4>' + movie + '</h4>' + 
+                '<h6>Rating: ' + rating + '</h6>' +
+                '<button class=removeBtn>Remove</button>' + 
+            '</div>')
+
+        $(".removeBtn").click(function (){
+            $(this).parent().remove();
+        
+      })
+
+            
+    });      
+ 
+
+        
+
+    
+</script>
+</body>
+</html>
